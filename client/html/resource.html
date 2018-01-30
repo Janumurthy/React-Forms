@@ -1,0 +1,23 @@
+<div class="uk-section">
+	<h1>{{title}}</h1>
+	<div class="uk-container uk-flex uk-flex-center">
+			<div uk-grid class="uk-grid-small">
+				<div class="uk-width-3-5@m">
+					<div class="cards card-1 uk-card uk-card-default uk-card-body">
+						<h4 class="uk-title">{{resources1.card}}</h4>
+						<div class="link"><p>{{resources1.link}}</p></div>
+					</div>
+				</div>
+				<div class="uk-width-2-5@m">
+				{% for resource in resources2 %}
+					<div class="cards card-{{resource.id}} uk-card uk-card-default uk-card-body">
+						<h4 class="uk-title">{{resource.card}}</h4>
+						<div class="link"><p>{{resource.link}}</p></div>								
+					</div>
+				{% endfor %}							
+				</div>
+
+			</div>
+			{% include "form.html" %}
+	</div>		
+</div>

@@ -1,0 +1,71 @@
+body,h4,p{
+	font-family: aktiv-grotesk,sans-serif!important;
+
+}
+
+.cards{
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-color:#dbe0e4;
+	background-position:center center;
+	position:relative;
+	top:0px;
+	border-radius:4px;
+	box-sizing:border-box;
+	-webkit-transition: top 0.1s; 
+    transition: top 0.1s;
+    -moz-transition: top 0.1s;
+    
+}
+
+.cards:hover{
+	top:-10px;
+	cursor:pointer;
+}
+
+
+.card-1{
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("../images/ADM-BigData-IMG-ITOM-woman in datacenter_0.jpg");
+	min-height: 490px;
+}
+
+.card-2{
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("../images/GettyImages-524555574_800px_0.jpg");
+	margin-bottom:18px;
+	min-height: 236px;
+}
+
+.card-3{
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("../images/GettyImages-563854685_800px_0.jpg");
+	min-height: 236px;
+}
+
+.cards h4{
+	font-size:30px;
+	line-height:38px;
+	color:#fff;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.cards.card-2 h4,
+.cards.card-3 h4{
+	font-size:24px;
+	line-height:34px;
+}
+
+.cards p{
+	color:#fff;
+	font-size:16px;
+	line-height: 28px;
+}
+
+
+.cards .link{
+	position:absolute;
+	bottom: 0px;
+}
+
+.cards .link p:after{
+	content:' ';
+} 

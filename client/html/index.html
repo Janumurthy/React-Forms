@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% includeData 'data/resources.json' %}
+		<link rel="stylesheet" href="./../uikit/dist/css/uikit.min.css">
+		<link rel="stylesheet" href="./../css/main.css">
+		<script type="text/javascript" src="./../uikit/dist/js/uikit.min.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>{{title}}</title>
+	</head>
+	<body>
+		{% include "resource.html" %}
+	</body>
+</html>
