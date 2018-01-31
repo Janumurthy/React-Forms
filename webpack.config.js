@@ -1,6 +1,6 @@
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-	template: __dirname+'./../client/html/index.html',
+	template: __dirname+'/client/html/index.html',
 	filename: 'index.html',
 	inject: 'body'
 });
@@ -8,7 +8,7 @@ var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 const path = require('path');
 
 module.exports={
-	entry:path.join(__dirname,'./../client/index.js'),
+	entry:path.join(__dirname,'/client/index.js'),
 	output:{
 		filename:'bundle.js',
 		path:__dirname,
@@ -17,7 +17,7 @@ module.exports={
 	module:{
 		loaders:[{
 			test:/\.jsx?$/,
-			exclude:[/node_modules/,/server/]
+			exclude:[/node_modules/,/server/],
 			loader:'babel-loader'
 		}]
 	},
