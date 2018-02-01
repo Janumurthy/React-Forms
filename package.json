@@ -13,9 +13,12 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-form": "^2.16.1",
+    "react-formstate": "^0.6.12",
+    "react-formstate-validation": "^0.3.8",
     "uikit": "3.0.0-beta.38"
   },
   "devDependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-react": "^6.24.1",

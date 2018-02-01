@@ -1,0 +1,444 @@
+{
+  "type": "gatedasset-form",
+  "data": {
+    "nid": 14069,
+    "gated-form-fields": [
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 24,
+          "type": "text",
+          "help_text": {
+            "lang": "Put your first name here"
+          },
+          "label": {
+            "lang": "First Name"
+          },
+          "name": "fname",
+          "validation": [
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 816,
+                "error_message": {
+                  "lang": "Minimum of 2 characters required"
+                },
+                "validation_type": "min",
+                "validation_value": "2"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 2397,
+                "error_message": {
+                  "lang": "Special characters are not allowed in First Name Field"
+                },
+                "validation_type": "noSpecialCheck"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 20356,
+                "error_message": {
+                  "lang": "You cannot have more then 40 characters for your first name. "
+                },
+                "validation_type": "max",
+                "validation_value": "40"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 25,
+          "type": "text",
+          "help_text": {
+            "lang": "Put your last name here"
+          },
+          "label": {
+            "lang": "Last Name"
+          },
+          "name": "lname",
+          "validation": [
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 817,
+                "error_message": {
+                  "lang": "Minimum of 2 characters required"
+                },
+                "validation_type": "min",
+                "validation_value": "2"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 2398,
+                "error_message": {
+                  "lang": "No special characters are allowed in the Last Name Field"
+                },
+                "validation_type": "noSpecialCheck"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 20357,
+                "error_message": {
+                  "lang": "You cannot have more than 80 characters for your last name. "
+                },
+                "validation_type": "max",
+                "validation_value": "80"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 26,
+          "type": "email",
+          "help_text": {
+            "lang": "Your email goes here"
+          },
+          "label": {
+            "lang": "Email"
+          },
+          "name": "email",
+          "validation": [
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 49,
+                "error_message": {
+                  "lang": "The email field requires a valid email address"
+                },
+                "label": {
+                  "lang": "Email Validation"
+                },
+                "validation_type": "emailCheck"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 20358,
+                "error_message": {
+                  "lang": "Your email can't be more then 80 characters."
+                },
+                "validation_type": "max",
+                "validation_value": "80"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 31,
+          "type": "text",
+          "help_text": {
+            "lang": "Insert your phone number here"
+          },
+          "label": {
+            "lang": "Phone"
+          },
+          "name": "phone",
+          "validation": [
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 818,
+                "error_message": {
+                  "lang": "Minimum of 7 digits required"
+                },
+                "validation_type": "min",
+                "validation_value": "7"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 20359,
+                "error_message": {
+                  "lang": "Your phone number can not be more then 40 characters."
+                },
+                "validation_type": "max",
+                "validation_value": "40"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 32,
+          "type": "text",
+          "help_text": {
+            "lang": "Put your Company Name Here."
+          },
+          "label": {
+            "lang": "Company"
+          },
+          "name": "companyName",
+          "validation": [
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 819,
+                "error_message": {
+                  "lang": "Minimum of 2 characters required"
+                },
+                "validation_type": "min",
+                "validation_value": "2"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 2399,
+                "error_message": {
+                  "lang": "No special characters are allowed in the Company Field"
+                },
+                "validation_type": "noSpecialCheck"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 20360,
+                "error_message": {
+                  "lang": "Your company name can not be more then 255 characters long."
+                },
+                "validation_type": "max",
+                "validation_value": "255"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 33,
+          "type": "selectInput",
+          "help_text": {
+            "lang": "The Position you hold at the Company"
+          },
+          "label": {
+            "lang": "Role"
+          },
+          "menu": [
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3736,
+                "default_value": false,
+                "label": {
+                  "lang": "Analyst"
+                },
+                "value": "analyst"
+              }
+            },
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3737,
+                "default_value": false,
+                "label": {
+                  "lang": "Architect"
+                },
+                "value": "architect"
+              }
+            },
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3738,
+                "default_value": false,
+                "label": {
+                  "lang": "C-Level"
+                },
+                "value": "clevel"
+              }
+            },
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3739,
+                "default_value": false,
+                "label": {
+                  "lang": "Consultant"
+                },
+                "value": "consultant"
+              }
+            },
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3740,
+                "default_value": false,
+                "label": {
+                  "lang": "Developer"
+                },
+                "value": "developer"
+              }
+            },
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3741,
+                "default_value": false,
+                "label": {
+                  "lang": "Manager"
+                },
+                "value": "manager"
+              }
+            },
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3742,
+                "default_value": false,
+                "label": {
+                  "lang": "Student"
+                },
+                "value": "student"
+              }
+            },
+            {
+              "type": "select-item",
+              "data": {
+                "nid": 3743,
+                "default_value": false,
+                "label": {
+                  "lang": "Tester"
+                },
+                "value": "tester"
+              }
+            }
+          ],
+          "name": "role",
+          "validation": [
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 820,
+                "error_message": {
+                  "lang": "Minimum of 2 characters required"
+                },
+                "validation_type": "min",
+                "validation_value": "2"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 2400,
+                "error_message": {
+                  "lang": "No special characters are allowed in Job Role"
+                },
+                "validation_type": "noSpecialCheck"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 35,
+          "type": "text",
+          "help_text": {
+            "lang": "Enter your Zip or Postal Code Here"
+          },
+          "label": {
+            "lang": "Zip Code"
+          },
+          "name": "zip",
+          "validation": [
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 821,
+                "error_message": {
+                  "lang": "Field required"
+                },
+                "validation_type": "noSpecialCheck"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 19699,
+                "error_message": {
+                  "lang": "Zip code is required"
+                },
+                "label": {
+                  "lang": "Zip code is required"
+                },
+                "validation_type": "min",
+                "validation_value": "2"
+              }
+            },
+            {
+              "type": "validation-item",
+              "data": {
+                "nid": 20361,
+                "error_message": {
+                  "lang": "Your zip code can not be more then 20 characters."
+                },
+                "validation_type": "max",
+                "validation_value": "20"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "form-fields",
+        "data": {
+          "nid": 36,
+          "type": "agreement",
+          "help_text": {
+            "lang": "Click the checkbox to accept terms of service. "
+          },
+          "label": {
+            "lang": "I agree to Micro Focus <a href=\"/legal/terms-services\">Terms of Service</a>."
+          },
+          "name": "readterms"
+        }
+      }
+    ],
+    "gated-form-submit": [
+      {
+        "type": "cta",
+        "data": {
+          "nid": 14068,
+          "button_field": [
+            {
+              "type": "button",
+              "data": {
+                "nid": 14067,
+                "button_type": "primary",
+                "label": {
+                  "lang": "SUBMIT"
+                }
+              }
+            }
+          ],
+          "external": false,
+          "link_url": "#"
+        }
+      }
+    ]
+  }
+}

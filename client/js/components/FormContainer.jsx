@@ -1,92 +1,102 @@
 import React, {Component} from 'react';
-import Form from 'react-form';
+import {FormState, Form} from 'react-formstate';
+import Input from './Input.jsx';
+/*import Select from './Select.jsx';
+import Checkbox from './Checkbox.jsx';*/
+import validation from './validation.js';
+import FormJSON from '../data.json';
+import UIKit from 'uikit';
+
 export default class FormContainer extends Component{
-	
 	constructor(props){
 		super(props);
+		validation(FormState); //need to understand
+		this.data = FormJSON.data['gated-form-fields'];
 		this.state={
-			fname:'',
-			lname:'',
-			email:'',
-			phone:'',
-			company:'',
-			isLoading:true,
-			displayResults:false
+			form_fields: this.data,
+			error:''
 		}
-		this.handleChange=this.handleChange.bind(this);
-		this.handleSubmit=this.handleSubmit.bind(this);
-		this.componentWillMount=this.componentWillMount.bind(this);
-		this.componentDidMount=this.componentDidMount.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.addValidation = this.addValidation.bind(this);
+		this.addValidationMsg = this.addValidationMsg.bind(this);
+		this.button=FormJSON.data['gated-form-submit'][0].data.button_field[0];
+		this.checkboxText= FormJSON.data['gated-form-fields'][7].data.label.lang;
+
+		this.formState = new FormState(this); //need to understand
 	}
 
-	componentDidMount(){
-		this.setState({isLoading:false});
-	}
+	  addValidation(item) {
+	        if(item.data.validation) {
+	            return (item.data.validation.map((val, i) => {
+	                return [
+	                    val.data.validation_type,
+	                    val.data.validation_value
+	                ];
+	            })
+	            )
+	        } else {
+	            return null;
+	        }
+	    }
 
-	componentWillMount(){
-		this.setState({isLoading:true});
-	}
+	    addValidationMsg(item) {
+	        if(item.data.validation) {
+	            return item.data.validation.map((val, i) => {
+	                return val.data.error_message.lang
+	            })
+	        } else {
+	            return null;
+	        }
+	    }
 
-	handleChange(event){
-		const name=event.target.name;
-		const value=event.target.value;
-		this.setState({
-			[name]:value
-		});
-	}
+	handleSubmit(){
 
-	handleSubmit(event){
-		this.setState({'displayResults':true})
-		event.preventDefault();
 	}
 
 	render(){
+		let context = this.data; //need to understand why let
+		let self = this;
+		let submitMessage = null;
+		let isInvalid = this.formState.isInvalid();
+		if(isInvalid){
+			submitMessage =  "Please fix the submission errors";
+		} 
+
 		return(
-			<div className="uk-container">
-				{this.state.isLanding ? 
-				<div className="Loader">Loading the form....</div>:
-					<form className="Form" onSubmit = {this.handleSubmit}>
-						<div className="heading">
-							<h1>Fill the form</h1>
-						</div>
-						<div className="uk-grid uk-grid-small">
-							<div className="ui-width-1-2@m uk-margin-bottom">
-								<label>
-									First Name:
-									<input className="uk-input" name="fname" type="text" value={this.state.fname} onChange={this.handleChange}/>
-								</label>
-							</div>
-							<div className="ui-width-1-2@m uk-margin-bottom">
-								<label>
-									Last Name:
-									<input className="uk-input" name="lname" type="text" value={this.state.lname} onChange={this.handleChange}/>
-								</label>
+			<div>
+				<Form className="form" formState={this.formState}>
+					<div className="uk-grid uk-grid-small">
+						<div className="uk-width-1-1@m">
+							<div className="form-text">
+								Tell me about yourself
 							</div>
 						</div>
-						<div className="ui-width-1-1@m uk-margin-bottom">
-							<label>
-								Company:
-								<input className="uk-input" name="company" type="text" value={this.state.company} onChange={this.handleChange}/>
-							</label>
+						{this.state.form_fields.map((item,i) => {
+								return(
+									<div key={i} className={i === 0 || i === 1 ? 'uk-width-1-2@m' : 'uk-width-1-1@m'}>
+									{ item.data.type !== 'agreement' && item.data.type !== 'select' && item.data.type !== 'selectInput' ? 
+									<Input  
+										key={i}
+                                        formField={item.data.name}
+                                        type={item.data.type}
+                                        label={item.data.label.lang}
+                                        validate={this.addValidation(item)}
+                                        validationMessages={this.addValidationMsg(item)}
+                                    /> 
+                                    : null
+									}
+									</div>
+								)
+							})
+						}
+						<div className="uk-width-1-1@m">
+							<button disabled={this.formState.isInvalid()} type="submit" 
+							className="uk-button uk-button-primary uk-button-lg" value={this.button.data.label.lang}>
+							{this.button.data.label.lang}
+							</button>
 						</div>
-						<div className="ui-width-1-1@m uk-margin-bottom">
-							<label>
-								Email Address:
-								<input className="uk-input" name="email" type="text" value={this.state.email} onChange={this.handleChange}/>
-							</label>
-						</div>
-						<button className="uk-padding-small uk-text-center uk-margin-bottom uk-button-primary" type='submit' value='Submit'>Submit</button>
-					</form>
-				}
-				{this.state.displayResults ? 
-				<div>
-					<h3>Details entered</h3>
-					<p>Your name: <b>{this.state.fname} {this.state.lname}</b></p> 
-					<p>Your E_mail address: <b>{this.state.email}</b></p> 
-					<p>Your Company: <b>{this.state.company}</b></p> 
-				</div>:
-				<div></div>
-				}
+					</div>
+				</Form>
 			</div>
 		)
 	}
